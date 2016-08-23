@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h3>Descripcion de la cuenta</h3>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-xs-3">Denominacion o razon social</td>
+                <td>{{ cont_empresa.nom_contribuyente }}</td>
+            </tr>
+            <tr>
+                <td>Nombre comercial</td>
+                <td>{{ cont_empresa.nom_contribuyente }}</td>
+            </tr>
+            <tr>
+                <td>Numero de NIT</td>
+                <td>{{ contribuenta_emp.0.nit_contribuyente }}</td>
+            </tr>
+            </tbody>
+    </table>
+    <div>
+        <span class="col-xs-2">Empresas/Establecimientos</span>
+        <table class="table table-bordered col-xs-10">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <th>Codigo</th>
+            </tr>
+            {% for sucursal in sucursal_list %}
+                <tr>
+                    <td>{{ sucursal.nom_emp }}</td>
+                    <td>{{ sucursal.cod_empresa }} {{ sucursal.cod_extra }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

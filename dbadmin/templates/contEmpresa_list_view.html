@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Cont Empresas</h1>
+<table class="table table-bordered table-hover">
+    <tbody>
+        <th>Cod cont empresa</th>
+        <th>Nom contribuyente</th>
+        <th>Grupo Cont</th>
+        <th>Cod Contribuyente</th>
+        {% for cont_empresa in cont_empresa_list %}
+            <tr class="clickable" url="{% url 'contEmpresa.detail' cont_empresa.cod_cont_empresa %}" onclick="visitUrl(this)">
+                <td>{{ cont_empresa.cod_cont_empresa }}</td>
+                <td>{{ cont_empresa.nom_contribuyente }}</td>
+                <td>{{ cont_empresa.grupo_cont }}</td>
+                <td>{{ cont_empresa.cod_contribuyente }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="text/javascript" src="/static/js/jquery/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,5 @@
+Django==1.7.*
+django-mssql
+django-pymssql
+django-crispy-forms
+django-filter==0.11.*

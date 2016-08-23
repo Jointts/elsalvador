@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block content %}
+
+<h1>Data clippers</h1>
+<table class="table table-bordered table-hover">
+    <tbody>
+        <th>Codigo</th>
+        <th>Extra</th>
+        <th>Dueno</th>
+        <th>Empresa</th>
+        <th>Direccion</th>
+        {% for data_clipper in data_clipper_list %}
+            <tr class="clickable" url="{% url 'contEmpresa.detail' cont_empresa.cod_cont_empresa %}" onclick="visitUrl(this)">
+                <td>{{ data_clipper.codigo }}</td>
+                <td>{{ data_clipper.xtra }}</td>
+                <td>{{ data_clipper.dueno }}</td>
+                <td>{{ data_clipper.empresa }}</td>
+                <td>{{ data_clipper.direccion }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% autopaginate data_clipper_list 20 %}
+{% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
+
+<script type="text/javascript" src="/static/js/jquery/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+.table-hover > tbody > tr:hover {
+    background-color: #D2D2D2;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.list-search-form{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.list-search-form button{
+    margin-left: 15px;
+}
+
+ul.navbar.navbar-nav{
+    line-height: 47px;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #D2D2D2;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #D2D2D2;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.list-search-form{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.list-search-form button{
+    margin-left: 15px;
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <ul>
+        <li>
+            <a href="{% url 'empresa.list' %}">
+                <span>Empresas</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'contEmpresa.list' %}">
+                <span>Cont Empresas</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'dataClipper.list' %}">
+                <span>Data clippers</span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}

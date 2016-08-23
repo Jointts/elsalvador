@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block content %}
+
+<h1>Empresas</h1>
+<form method="get" class="form-inline list-search-form">
+    <input name="cod_empresa" type="text" class="form-control col-xs-4" placeholder="Search">
+    <button type="submit" class="btn btn-secondary">
+        <i class="glyphicon glyphicon-search"></i>
+        Search
+    </button>
+</form>
+<table class="table table-bordered table-hover">
+    <tbody>
+        <th>Cod empresa</th>
+        <th>Cod contribuyente</th>
+        <th>Grupo cont</th>
+        {% for empresa in empresa_list %}
+            <tr class="clickable" url="{% url 'empresa.detail' empresa.cod_empresa %}" onclick="visitUrl(this)">
+                <td>{{ empresa.cod_empresa }}</td>
+                <td>{{ empresa.cod_contribuyente }}</td>
+                <td>{{ empresa.grupo_cont }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% autopaginate empresa_list 20 %}
+{% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
+
+<script type="text/javascript" src="/static/js/jquery/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+
+
+{% endblock %}

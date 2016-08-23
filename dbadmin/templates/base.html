@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_headers %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+      <div class="container">
+          <a href="/" class="navbar-brand">El Salvador</a>
+          <ul class="nav navbar-nav">
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+          </ul>
+      </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
